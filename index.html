@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050014;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, #7b2cff55, transparent 30%),
+        radial-gradient(circle at 80% 70%, #ff2f9250, transparent 30%);
+    z-index:-2;
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px);
+    background-size:45px 45px;
+    opacity:.25;
+    animation:moveStars 15s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveStars{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(45px);
+    }
+}
+
+/* ================= MAIN CARD ================= */
+
+.container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px 15px;
+}
+
+.card{
+    width:100%;
+    max-width:500px;
+    padding:28px 18px;
+    border:1px solid #ffffff22;
+    border-radius:28px;
+    background:#ffffff0c;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    box-shadow:0 0 50px #8a2be255;
+    text-align:center;
+}
+
+/* ================= INTRO ================= */
+
+.intro{
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.emoji{
+    font-size:65px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+h1{
+    margin-top:15px;
+    font-size:clamp(35px,10vw,58px);
+
+    background:linear-gradient(
+        90deg,
+        #ff65c3,
+        #a66cff,
+        #66d9ff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:0 0 25px #c13cff66;
+}
+
+.name{
+    font-size:27px;
+    margin-top:8px;
+    color:#ffd6f6;
+}
+
+.subtitle{
+    margin-top:12px;
+    color:#ddd;
+    line-height:1.6;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    border:none;
+    margin-top:25px;
+    padding:15px 28px;
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3cac,
+            #784cff
+        );
+
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 0 25px #c13cff88;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 35px #d54cffaa;
+}
+
+button:active{
+    transform:scale(.94);
+}
+
+/* ================= WISH ================= */
+
+.wish{
+    display:none;
+    margin-top:30px;
+    animation:fadeIn 1s ease;
+}
+
+.wish p{
+    color:#eee;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* ================= PHOTO GALLERY ================= */
+
+.gallery-title{
+    margin-top:32px;
+    font-size:24px;
+    color:#ffd2f5;
+}
+
+.gallery-hint{
+    font-size:13px;
+    color:#aaa;
+    margin-top:6px;
+}
+
+.gallery{
+    display:flex;
+    gap:14px;
+
+    overflow-x:auto;
+
+    padding:18px 3px 12px;
+
+    scroll-snap-type:x mandatory;
+
+    scrollbar-width:none;
+}
+
+.gallery::-webkit-scrollbar{
+    display:none;
+}
+
+.photo{
+    flex:0 0 82%;
+
+    scroll-snap-align:center;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:2px solid #ffffff25;
+
+    box-shadow:
+        0 0 25px #a33cff55;
+
+    background:#111;
+}
+
+.photo img{
+    width:100%;
+    height:370px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s;
+}
+
+.photo img:hover{
+    transform:scale(1.04);
+}
+
+/* ================= CEE MESSAGE ================= */
+
+.cee{
+    margin-top:30px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff10,
+            #ffffff05
+        );
+
+    border:1px solid #ffffff18;
+
+    box-shadow:
+        inset 0 0 25px #ffffff05;
+}
+
+.cee h2{
+    color:#ffb8ee;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.cee p{
+    line-height:1.7;
+    color:#ddd;
+}
+
+/* ================= FINAL MESSAGE ================= */
+
+.final{
+    margin-top:30px;
+    font-size:14px;
+    color:#aaa;
+}
+
+.final-heart{
+    font-size:25px;
+    margin-top:8px;
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+    position:fixed;
+
+    bottom:-30px;
+
+    font-size:20px;
+
+    animation:
+        floatUp 5s linear forwards;
+
+    pointer-events:none;
+
+    z-index:100;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:
+            translateY(0)
+            scale(.7)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            scale(1.4)
+            rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+
+    width:7px;
+    height:12px;
+
+    top:-20px;
+
+    animation:
+        confettiFall 4s linear forwards;
+
+    z-index:99;
+
+    pointer-events:none;
+}
+
+@keyframes confettiFall{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* ================= MUSIC INDICATOR ================= */
+
+.music-status{
+    display:none;
+
+    margin-top:15px;
+
+    color:#ffb8ee;
+
+    font-size:13px;
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:.5;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:400px){
+
+    .container{
+        padding:18px 10px;
+    }
+
+    .card{
+        padding:23px 13px;
+        border-radius:24px;
+    }
+
+    .emoji{
+        font-size:55px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    .name{
+        font-size:23px;
+    }
+
+    .photo img{
+        height:320px;
+    }
+
+    .cee{
+        padding:17px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- Background -->
+<div class="stars"></div>
+
+
+<!-- ================= AUDIO ================= -->
+
+<audio id="birthdaySound" preload="auto">
+
+    <!-- Put birthday.mp3 in the same folder -->
+    <source src="birthday.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+<div class="card">
+
+
+    <!-- ================= INTRO ================= -->
+
+    <div class="intro">
+
+        <div class="emoji">
+            🎂
+        </div>
+
+
+        <h1>
+            Happy Birthday
+        </h1>
+
+
+        <!-- CHANGE NAME HERE -->
+
+        <div class="name">
+            Someone Special ❤️
+        </div>
+
+
+        <p class="subtitle">
+
+            A little late...
+
+            but the wish comes
+
+            straight from the heart. 🥺❤️
+
+        </p>
+
+
+        <button onclick="openWish()">
+
+            🎁 Open Your Surprise
+
+        </button>
+
+
+        <div
+            class="music-status"
+            id="musicStatus"
+        >
+
+            🎵 Playing your birthday wish...
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= WISH ================= -->
+
+    <div
+        class="wish"
+        id="wish"
+    >
+
+
+        <p>
+
+            Heyy, sorry hai 🥺❤️
+
+            <br><br>
+
+
+            Timro birthday asti thaio,
+
+            tara timro number nabhetera
+
+            birthday ko din nai wish garna paaina.
+
+            Really sorry for the late wish 😭
+
+            <br><br>
+
+
+            <b>
+                Belated Happy Birthday! 🎂🎉❤️
+            </b>
+
+            <br><br>
+
+
+            Timro life sadhai happiness,
+
+            success ra ramra moments le
+
+            bharirakhos.
+
+            Timile socheko sabai kura
+
+            pura hudai jaos. ✨
+            Bipin is always here to support you...
+
+        </p>
+
+
+
+        <!-- ================= PHOTOS ================= -->
+
+        <div class="gallery-title">
+
+            📸 Some Beautiful Memories
+
+        </div>
+
+
+        <div class="gallery-hint">
+
+            ← Swipe to see all memories →
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo1.jpg"
+                    alt="Memory 1"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo2.jpg"
+                    alt="Memory 2"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo3.jpeg"
+                    alt="Memory 3"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo4.jpeg"
+                    alt="Memory 4"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 5 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo5.jpeg"
+                    alt="Memory 5"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 6 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo6.jpg"
+                    alt="Memory 6"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 7 -->
+
+            <div class="photo">
+
+                <img
+                    src="photo7.jpeg"
+                    alt="Memory 7"
+                >
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================= CEE ================= -->
+
+        <div class="cee">
+
+
+            <h2>
+                📚 Your CEE Journey
+            </h2>
+
+
+            <p>
+
+                CEE ko preparation gardai chau,
+
+                so timro mehenat ko ramro result
+
+                aaos bhanera dherai dherai
+
+                शुभकामना! ❤️
+
+                <br><br>
+
+
+                Exam ko lagi confident basa,
+
+                mehenat gardai jau
+
+                and don't give up.
+
+                Timile dream gareko college ma
+
+                admission pauna sakos. 🩺✨
+
+                <br><br>
+
+
+                <b>
+                    All the very best for CEE! 💙
+                </b>
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- ================= FINAL ================= -->
+
+        <div class="final">
+
+            Made with ❤️ just for you
+
+            <div class="final-heart">
+                🎂 ✨ 💖 ✨ 🎂
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================
+   OPEN BIRTHDAY SURPRISE
+========================================= */
+
+function openWish(){
+
+
+     /* Show wish */
+    const wish = document.getElementById("wish");
+    wish.style.display = "block";
+
+
+    /* ===============================
+       PLAY MUSIC CONTINUOUSLY
+    =============================== */
+
+    const music = document.getElementById("birthdaySound");
+
+    // Start from beginning
+    music.currentTime = 0;
+
+    // Keep playing until page is left
+    music.loop = true;
+
+    music.play()
+        .then(() => {
+
+            document.getElementById("musicStatus").style.display = "block";
+
+        })
+        .catch((error) => {
+
+            console.log("Audio could not play:", error);
+
+        });
+
+
+
+    /* =====================================
+       CREATE HEARTS
+    ===================================== */
+
+    for(let i = 0; i < 40; i++){
+
+        setTimeout(() => {
+
+            createHeart();
+
+        }, i * 100);
+
+    }
+
+
+    /* =====================================
+       CREATE CONFETTI
+    ===================================== */
+
+    for(let i = 0; i < 70; i++){
+
+        setTimeout(() => {
+
+            createConfetti();
+
+        }, i * 45);
+
+    }
+
+
+    /* =====================================
+       SCROLL
+    ===================================== */
+
+    setTimeout(() => {
+
+        wish.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },500);
+
+}
+
+
+
+/* =========================================
+   FLOATING HEART
+========================================= */
+
+function createHeart(){
+
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className = "heart";
+
+
+    const hearts = [
+
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💜",
+        "💙",
+        "✨",
+        "🎂"
+
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+
+    heart.style.fontSize =
+        (16 + Math.random() * 18) + "px";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },8000);
+
+}
+
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti(){
+
+
+    const confetti =
+        document.createElement("div");
+
+
+    confetti.className =
+        "confetti";
+
+
+    confetti.style.left =
+        Math.random() * 100 + "vw";
+
+
+    confetti.style.width =
+        (5 + Math.random() * 5) + "px";
+
+
+    confetti.style.height =
+        (8 + Math.random() * 8) + "px";
+
+
+    confetti.style.background =
+        "hsl(" +
+        Math.random() * 360 +
+        ",100%,70%)";
+
+
+    confetti.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
+
+
+    document.body.appendChild(
+        confetti
+    );
+
+
+    setTimeout(() => {
+
+        confetti.remove();
+
+    },7000);
+
+}
+
+</script>
+
+</body>
+</html>
